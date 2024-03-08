@@ -45,8 +45,10 @@ def blob_trigger1(myblob: func.InputStream):
     
         # Upload the blob to the destination container and delete it from the source container
     try:
-        destination_blob_client = destination_container_client.upload_blob(name=blob_name, data=content)
-        source_container_client.delete_blob(myblob.name)
+        logging.info(f'Attempting to upload [{blob_name}] to {destination_container_client.container_name}')
+        destination_container_client.upload_blob(name=blob_name, data=content)
+        logging.info(f'Attempting to delete [{blob_name}] from {source_container_client.container_name}')
+        source_container_client.delete_blob(blob_name)
         logging.info(f"Moved blob {myblob.name} from {staging_container_name} to {destination_container_client.container_name}.")
     except Exception as e:
         logging.error(f'Failed to move blob {myblob.name}: {e}')
