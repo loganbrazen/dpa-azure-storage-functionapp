@@ -8,7 +8,7 @@ dpa_scan_binary_url = 'https://52.201.88.227:5000/scan/binary/v2'
 staging_container_name = 'staging'
 quarantine_container_name = 'quarantine'
 production_container_name = 'production'
-storage_account_connection_string = 'DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=dpastorageaccount;AccountKey=j0vufpS+DXuIYtUUOq+ce/55eUgwHnQ+rc54IWbEHNRuoc9WhebGYhqeiWxDV1Mc5api0yk7VtTt+AStzcl2hw==;BlobEndpoint=https://dpastorageaccount.blob.core.windows.net/;FileEndpoint=https://dpastorageaccount.file.core.windows.net/;QueueEndpoint=https://dpastorageaccount.queue.core.windows.net/;TableEndpoint=https://dpastorageaccount.table.core.windows.net'
+storage_account_connection_string = ''
 
 @app.blob_trigger(arg_name="myblob", path="staging/{name}",
                                connection="AzureWebJobsStorage") 
